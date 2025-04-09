@@ -1,7 +1,12 @@
 /// The position of the notification.
 final class FlashNotificationPosition {
   /// Constructor for the [FlashNotificationPosition] class.
-  const FlashNotificationPosition({this.top, this.bottom, this.left, this.right});
+  const FlashNotificationPosition({
+    this.top,
+    this.bottom,
+    this.left,
+    this.right,
+  });
 
   /// The top position of the notification.
   final double? top;

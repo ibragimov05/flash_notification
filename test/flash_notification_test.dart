@@ -17,7 +17,12 @@ void main() {
               builder:
                   (context) => Center(
                     child: ElevatedButton(
-                      onPressed: () => FlashNotification.show(context: context, message: 'Test notification', testMode: true),
+                      onPressed:
+                          () => FlashNotification.show(
+                            context: context,
+                            message: 'Test notification',
+                            testMode: true,
+                          ),
                       child: const Text('Show Notification'),
                     ),
                   ),
@@ -33,7 +38,10 @@ void main() {
       expect(find.text('Test notification'), findsOneWidget);
 
       final decoratedBox = tester.widget<DecoratedBox>(
-        find.descendant(of: find.byType(FlashNotification), matching: find.byType(DecoratedBox)),
+        find.descendant(
+          of: find.byType(FlashNotification),
+          matching: find.byType(DecoratedBox),
+        ),
       );
 
       final decoration = decoratedBox.decoration as BoxDecoration;
@@ -42,7 +50,11 @@ void main() {
 
     testWidgets('displays notification with custom styling', (tester) async {
       const customColor = Colors.purple;
-      const customStyle = TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold);
+      const customStyle = TextStyle(
+        fontSize: 18,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      );
 
       await tester.pumpWidget(
         MaterialApp(
@@ -74,7 +86,10 @@ void main() {
       expect(find.text('Custom notification'), findsOneWidget);
 
       final decoratedBox = tester.widget<DecoratedBox>(
-        find.descendant(of: find.byType(FlashNotification), matching: find.byType(DecoratedBox)),
+        find.descendant(
+          of: find.byType(FlashNotification),
+          matching: find.byType(DecoratedBox),
+        ),
       );
 
       final decoration = decoratedBox.decoration as BoxDecoration;
@@ -131,7 +146,10 @@ void main() {
                       children: [
                         ElevatedButton(
                           onPressed:
-                              () => context.showFlashNotification(message: 'Dismissible notification', testMode: true),
+                              () => context.showFlashNotification(
+                                message: 'Dismissible notification',
+                                testMode: true,
+                              ),
                           child: const Text('Show Notification'),
                         ),
                         ElevatedButton(
@@ -196,7 +214,10 @@ void main() {
       expect(find.text('Custom position'), findsOneWidget);
 
       final positionedWidget = tester.widget<Positioned>(
-        find.ancestor(of: find.text('Custom position'), matching: find.byType(Positioned)),
+        find.ancestor(
+          of: find.text('Custom position'),
+          matching: find.byType(Positioned),
+        ),
       );
 
       expect(positionedWidget.bottom, customBottom);
@@ -215,11 +236,19 @@ void main() {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         ElevatedButton(
-                          onPressed: () => context.showFlashNotification(message: 'First notification', testMode: true),
+                          onPressed:
+                              () => context.showFlashNotification(
+                                message: 'First notification',
+                                testMode: true,
+                              ),
                           child: const Text('Show First'),
                         ),
                         ElevatedButton(
-                          onPressed: () => context.showFlashNotification(message: 'Second notification', testMode: true),
+                          onPressed:
+                              () => context.showFlashNotification(
+                                message: 'Second notification',
+                                testMode: true,
+                              ),
                           child: const Text('Show Second'),
                         ),
                       ],
@@ -245,7 +274,12 @@ void main() {
     });
 
     test('FlashNotificationPosition stores values correctly', () {
-      const position = FlashNotificationPosition(top: 10, bottom: 20, left: 30, right: 40);
+      const position = FlashNotificationPosition(
+        top: 10,
+        bottom: 20,
+        left: 30,
+        right: 40,
+      );
 
       expect(position.top, 10);
       expect(position.bottom, 20);

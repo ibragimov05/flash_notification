@@ -99,7 +99,13 @@ class FlashNotification extends StatefulWidget {
           (context) => FlashNotification(
             message: message,
             backgroundColor: backgroundColor ?? const Color(0xFF17B26A),
-            textStyle: textStyle ?? const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.white),
+            textStyle:
+                textStyle ??
+                const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                ),
             duration: duration ?? const Duration(seconds: 3),
             icon: icon,
             radius: radius ?? const BorderRadius.all(Radius.circular(64)),
@@ -126,7 +132,8 @@ class FlashNotification extends StatefulWidget {
   State<FlashNotification> createState() => _FlashNotificationState();
 }
 
-class _FlashNotificationState extends State<FlashNotification> with SingleTickerProviderStateMixin {
+class _FlashNotificationState extends State<FlashNotification>
+    with SingleTickerProviderStateMixin {
   late Animation<double> _fadeAnimation;
   late AnimationController _animationController;
 
@@ -134,24 +141,33 @@ class _FlashNotificationState extends State<FlashNotification> with SingleTicker
   void initState() {
     super.initState();
 
-    _animationController = AnimationController(duration: const Duration(milliseconds: 150), vsync: this);
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 150),
+      vsync: this,
+    );
 
-    _fadeAnimation = Tween<double>(
-      begin: 0,
-      end: 1,
-    ).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeIn, reverseCurve: Curves.easeOut));
+    _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeIn,
+        reverseCurve: Curves.easeOut,
+      ),
+    );
 
     _animationController.forward();
 
     if (!widget.testMode) {
-      Future<void>.delayed(widget.duration - const Duration(milliseconds: 150), () {
-        if (mounted) {
-          _animationController.reverse().then((_) {
-            FlashNotification._currentOverlay?.remove();
-            FlashNotification._currentOverlay = null;
-          });
-        }
-      });
+      Future<void>.delayed(
+        widget.duration - const Duration(milliseconds: 150),
+        () {
+          if (mounted) {
+            _animationController.reverse().then((_) {
+              FlashNotification._currentOverlay?.remove();
+              FlashNotification._currentOverlay = null;
+            });
+          }
+        },
+      );
     }
   }
 
@@ -170,7 +186,9 @@ class _FlashNotificationState extends State<FlashNotification> with SingleTicker
         right: widget.position?.right ?? 15,
         bottom: widget.position?.bottom,
         child: GestureDetector(
-          onTap: widget.onNotificationTap ?? FlashNotification.hideCurrentNotification,
+          onTap:
+              widget.onNotificationTap ??
+              FlashNotification.hideCurrentNotification,
           child: FadeTransition(
             opacity: _fadeAnimation,
             child: Center(
@@ -181,11 +199,20 @@ class _FlashNotificationState extends State<FlashNotification> with SingleTicker
                     color: widget.backgroundColor,
                     borderRadius: widget.radius,
                     boxShadow: const <BoxShadow>[
-                      BoxShadow(color: Colors.black26, blurRadius: 10, offset: Offset(0, 4)),
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 10,
+                        offset: Offset(0, 4),
+                      ),
                     ],
                   ),
                   child: Padding(
-                    padding: widget.padding ?? const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                    padding:
+                        widget.padding ??
+                        const EdgeInsets.symmetric(
+                          vertical: 12,
+                          horizontal: 16,
+                        ),
                     child: switch (widget.icon == null) {
                       true => Text(
                         widget.message,

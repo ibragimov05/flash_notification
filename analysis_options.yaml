@@ -230,7 +230,3 @@ linter:
     avoid_positional_boolean_parameters: true
     hash_and_equals: true
     avoid_equals_and_hash_code_on_mutable_classes: true
-
-    # Formatter
-    formatter:
-      line_length: 120

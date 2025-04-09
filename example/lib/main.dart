@@ -9,7 +9,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
     title: 'Flutter Demo',
-    theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
+    theme: ThemeData(
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    ),
     home: const MyHomePage(title: 'Flash Notification Example'),
   );
 }
@@ -25,7 +27,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   /// Shows a flash notification.
-  void _showFlashNotification() => FlashNotification.show(context: context, message: 'Hello, world!');
+  void _showFlashNotification() =>
+      FlashNotification.show(context: context, message: 'Hello, world!');
 
   /// Shows a flash notification with an icon.
   void _showFlashNotificationWithIcon() => FlashNotification.show(
@@ -35,18 +38,30 @@ class _MyHomePageState extends State<MyHomePage> {
   );
 
   /// Shows a flash notification with a long duration.
-  void _showFlashNotificationWithLongDuration() =>
-      FlashNotification.show(context: context, message: 'Hello, world!', duration: const Duration(seconds: 10));
+  void _showFlashNotificationWithLongDuration() => FlashNotification.show(
+    context: context,
+    message: 'Hello, world!',
+    duration: const Duration(seconds: 10),
+  );
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(backgroundColor: Theme.of(context).colorScheme.inversePrimary, title: Text(widget.title)),
+    appBar: AppBar(
+      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      title: Text(widget.title),
+    ),
     body: Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          FilledButton(onPressed: _showFlashNotification, child: Text('Flash notification')),
-          FilledButton(onPressed: _showFlashNotificationWithIcon, child: Text('Flash notification with icon')),
+          FilledButton(
+            onPressed: _showFlashNotification,
+            child: Text('Flash notification'),
+          ),
+          FilledButton(
+            onPressed: _showFlashNotificationWithIcon,
+            child: Text('Flash notification with icon'),
+          ),
           FilledButton(
             onPressed: _showFlashNotificationWithLongDuration,
             child: Text('Flash notification with long duration'),
