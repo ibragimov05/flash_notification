@@ -1,7 +1,8 @@
 name: flash_notification
 description: "A new Flutter package project."
 version: 0.0.1
-# homepage:
+homepage: https://github.com/ibragimov05/flash_notification
+issue_tracker: https://github.com/ibragimov05/flash_notification/issues
 
 environment:
   sdk: ^3.7.2
