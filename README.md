@@ -2,10 +2,10 @@
 
 A lightweight and customizable Flutter package for displaying temporary, toast-like notifications.
 
-<div style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px;">
-  <img src="https://github.com/ibragimov05/flash_notification/blob/main/screenshots/screenshot_1.png" alt="Flash notification" width="50%" />
-  <img src="https://github.com/ibragimov05/flash_notification/blob/main/screenshots/screenshot_2.png" alt="Flash notification" width="50%" />
-</div>
+<p align="center">
+  <img src="https://github.com/ibragimov05/flash_notification/blob/main/screenshots/screenshot_1.png" alt="Flash notification" width="30%" />
+  <img src="https://github.com/ibragimov05/flash_notification/blob/main/screenshots/screenshot_2.png" alt="Flash notification" width="30%" />
+</p>
 
 ## Features
 
