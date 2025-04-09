@@ -1,39 +1,132 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Flash Notification
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A lightweight and customizable Flutter package for displaying temporary, toast-like notifications.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+<div style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px;">
+  <img src="https://github.com/ibragimov05/flash_notification/blob/main/screenshots/screenshot_1.png" alt="Flash notification" width="50%" />
+  <img src="https://github.com/ibragimov05/flash_notification/blob/main/screenshots/screenshot_2.png" alt="Flash notification" width="50%" />
+</div>
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- 🎯 **Dismissible**: Can be dismissed by tapping on it
+- 🎨 **Customizable**: Change colors, text styles, border radius, and more
+- 🔣 **Icon Support**: Include optional icons in your notifications
+- 📱 **Flexible Positioning**: Show notifications at different screen positions
+- 🖱️ **Interaction**: Add tap callbacks for notification interaction
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add the package to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  flash_notification: ^0.0.1  # Replace with actual version
+```
+
+Then run:
+
+```bash
+flutter pub get
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### Basic Usage
 
 ```dart
-const like = 'sample';
+// Using the static method
+FlashNotification.show(
+  context: context,
+  message: 'Hello, world!',
+);
+
+// Or using the context extension
+context.showFlashNotification(
+  message: 'Hello, world!',
+);
 ```
+
+### With Custom Styling
+
+```dart
+FlashNotification.show(
+  context: context,
+  message: 'Operation completed successfully!',
+  backgroundColor: Colors.green,
+  textStyle: TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+  ),
+  radius: BorderRadius.circular(10),
+);
+```
+
+### With an Icon
+
+```dart
+FlashNotification.show(
+  context: context,
+  message: 'New notification received',
+  icon: Icon(Icons.notifications, color: Colors.white),
+);
+```
+
+### Custom Position
+
+```dart
+FlashNotification.show(
+  context: context,
+  message: 'Positioned at the bottom',
+  position: FlashNotificationPosition(
+    bottom: 20,
+    left: 20,
+    right: 20,
+  ),
+);
+```
+
+### With Custom Duration
+
+```dart
+FlashNotification.show(
+  context: context,
+  message: 'I will stay longer',
+  duration: Duration(seconds: 5),
+);
+```
+
+### Manual Dismissal
+
+```dart
+// Manually hide a notification
+FlashNotification.hideCurrentNotification();
+
+// Or using the context extension
+context.hideFlashNotification();
+```
+
+## Example Project
+
+For a complete working example, check the [example](https://github.com/ibragimov05/flash_notification/blob/main/example/lib/main.dart) directory.
+
+## Contributing
+
+Contributions are welcome! If you find a bug or want a feature:
+
+1. Check if an issue already exists
+2. Create a new issue if needed
+3. Fork the repo
+4. Create your feature branch (`git checkout -b feature/amazing-feature`)
+5. Commit your changes (`git commit -m 'Add some amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+- **GitHub**: [https://github.com/ibragimov05/flash_notification](https://github.com/ibragimov05/flash_notification)
+- **Issues**: [https://github.com/ibragimov05/flash_notification/issues](https://github.com/ibragimov05/flash_notification/issues)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/ibragimov05/flash_notification/blob/main/LICENSE) file for details.
