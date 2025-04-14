@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Platform support added to pubspec.yaml
+
 ## 0.0.3
 
 * Files formatted to increase pub points.
