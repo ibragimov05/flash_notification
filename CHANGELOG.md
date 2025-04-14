@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Added screenshots to README.md
+
 ## 0.0.4
 
 * Platform support added to pubspec.yaml
