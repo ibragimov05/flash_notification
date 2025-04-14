@@ -1,12 +1,22 @@
 name: flash_notification
 description: "A lightweight and customizable Flutter package for displaying temporary, toast-like notifications."
 version: 0.0.3
+
 homepage: https://github.com/ibragimov05/flash_notification
 issue_tracker: https://github.com/ibragimov05/flash_notification/issues
+
 topics:
   - notifications
   - toast
   - snackbar
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
 
 environment:
   sdk: ^3.7.2
